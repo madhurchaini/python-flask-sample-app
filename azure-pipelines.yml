@@ -30,5 +30,15 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+- task: CmdLine@2
+  inputs:
+    script: 'python setup.py sdist'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'
+    ArtifactName: 'dist'
+    publishLocation: 'Container'
+
 
 
